@@ -1,0 +1,80 @@
+:root{
+  --primary-color: #2563EB;
+  --secondary-color: #50E3C2;
+  --bg: #FFFFFF; /* page background */
+  --surface: #F7FAFC; /* subtle surface */
+  --card-bg: #FFFFFF;
+  --sidebar-bg: #F3F6F9;
+  --text-color: #0F1724;
+  --muted: #6B7280;
+}
+
+/* Force light background across Streamlit containers */
+html, body, .stApp, .block-container, [data-testid="stAppViewContainer"], [data-testid="stAppViewContainer"] > div {
+  background: var(--bg) !important;
+  color: var(--text-color) !important;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial !important;
+}
+
+/* Sidebar: light, slightly tinted */
+[data-testid="stSidebar"]{
+  background: var(--sidebar-bg) !important;
+  color: var(--text-color) !important;
+  border-right: 1px solid #E6EEF8 !important;
+}
+
+[data-testid="stSidebar"] *{ color: var(--text-color) !important; }
+
+/* Headings and text hierarchy */
+h1, h2, h3, h4{ color: var(--text-color) !important; font-weight:700; }
+h1{ font-size:32px !important; margin:0 0 18px 0; }
+h2{ font-size:22px !important; margin:0 0 14px 0; }
+p, span, label, div { color: var(--text-color) !important; }
+.css-18e3th9 { background: transparent !important; }
+
+/* Buttons */
+.stButton>button{ background: linear-gradient(45deg,var(--primary-color),var(--secondary-color)) !important; color:#fff !important; border-radius:8px !important; padding:8px 14px !important; border:0 !important; box-shadow:0 6px 18px rgba(37,99,235,0.12) !important; }
+
+/* Card surfaces */
+.metric-card, .stDataFrame, .stApp>div>div>section { background: var(--card-bg) !important; }
+.metric-card{ border-radius:12px !important; box-shadow:0 6px 22px rgba(16,24,40,0.04) !important; }
+
+/* File uploader and inputs */
+.stFileUploader>div>div{ background: var(--surface) !important; border:1px dashed #E6EEF8 !important; border-radius:10px !important; }
+input, textarea, select { color: var(--text-color) !important; }
+
+/* Make markdown/text containers inherit the color */
+.stMarkdown, .stText, .streamlit-expanderHeader { color: var(--text-color) !important; }
+
+/* Improve contrast for small muted text */
+.muted, .css-1iun1pv, .css-1v3fvcr { color: var(--muted) !important; }
+
+/* Ensure block container padding is comfortable */
+.block-container{ padding:32px !important; }
+
+/* Sidebar header/logo spacing */
+.css-1d391kg, .css-1d391kg * { color: var(--text-color) !important; }
+
+/* Make Streamlit top bar transparent so the page background shows through */
+header,
+header > div,
+div[role="banner"],
+[data-testid="stToolbar"],
+[data-testid="stAppViewContainer"] > header,
+#MainMenu,
+.reportview-container header,
+.css-1v3fvcr,
+.css-18e3th9,
+.css-1d391kg {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
+}
+
+/* Ensure top bar controls (menu / deploy) don't have white backgrounds */
+div[role="toolbar"],
+div[role="button"],
+.css-1kyxreq,
+.css-1v3fvcr * {
+  background: transparent !important;
+}

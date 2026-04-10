@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Airline Reviews UI Preview</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#0f1724; margin:24px; background:#ffffff; }
+    h1 { font-size:20px; margin-bottom:12px; }
+    .wrap { max-width:1100px; margin:0 auto; }
+    .row { display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start; }
+    .card { background:#f8fafc; border-radius:8px; padding:12px; border:1px solid #eef2f7; box-sizing:border-box; }
+    .preview-img { width:100%; height:auto; display:block; border-radius:8px; box-shadow:0 6px 18px rgba(15,23,42,0.06); }
+    .col { flex:1 1 320px; min-width:280px; }
+    .component-grid { display:grid; grid-template-columns: repeat(auto-fill,minmax(180px,1fr)); gap:12px; margin-top:12px; }
+    .component-grid img { width:100%; height:auto; border-radius:6px; background:#fff; border:1px solid #eef2f7; padding:8px; }
+    .caption { font-size:13px; color:#475569; margin-top:8px; }
+    a.link { color:#2563eb; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Airline Reviews — Preview</h1>
+    <p class="caption">Preview of the UI assets exported from Pencil. Open the images in a new tab for full resolution.</p>
+
+    <h2>Full UI (Desktop)</h2>
+    <div class="row">
+      <div class="col card">
+        <img class="preview-img" src="preview-assets/desktop_91zUq.png" alt="Full UI Desktop" />
+        <div class="caption"><a class="link" href="preview-assets/desktop_91zUq.png" target="_blank">Open desktop image</a></div>
+      </div>
+    </div>
+
+    <h2>Full UI (Tablet)</h2>
+    <div class="row">
+      <div class="col card">
+        <img class="preview-img" src="preview-assets/tablet_91zUq.png" alt="Full UI Tablet" />
+        <div class="caption"><a class="link" href="preview-assets/tablet_91zUq.png" target="_blank">Open tablet image</a></div>
+      </div>
+    </div>
+
+    <h2>Full UI (Mobile)</h2>
+    <div class="row">
+      <div class="col card">
+        <img class="preview-img" src="preview-assets/mobile_91zUq.png" alt="Full UI Mobile" />
+        <div class="caption"><a class="link" href="preview-assets/mobile_91zUq.png" target="_blank">Open mobile image</a></div>
+      </div>
+    </div>
+
+    <h2>Sections & Components</h2>
+    <div class="component-grid">
+      <img src="preview-assets/components_2x/B93XO.png" alt="Header" />
+      <img src="preview-assets/components_2x/izn1D.png" alt="SearchBar" />
+      <img src="preview-assets/components_2x/DXIyP.png" alt="ReviewSummary" />
+      <img src="preview-assets/components_2x/kXi1J.png" alt="ReviewList" />
+      <img src="preview-assets/components_2x/iMsAi.png" alt="ReviewSubmission" />
+      <img src="preview-assets/components_2x/prUUl.png" alt="Logo" />
+      <img src="preview-assets/components_2x/2zVxj.png" alt="SubmitButton" />
+      <img src="preview-assets/components_2x/51gq6.png" alt="SampleCard" />
+      <img src="preview-assets/components_2x/az3wW.png" alt="Stars" />
+    </div>
+
+    <p class="caption" style="margin-top:18px">Files are stored in <code>preview-assets/</code>. The preview page is <code>preview.html</code>. The local server will be started at <code>http://localhost:8000/preview.html</code>.</p>
+  </div>
+</body>
+</html>

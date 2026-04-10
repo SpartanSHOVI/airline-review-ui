@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Airline Reviews — Template</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="site">
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <img src="assets/components/prUUl.png" alt="Airline Reviews logo" class="logo-img">
+          <div class="brand-title">Airline Reviews</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container main">
+      <section class="search-area">
+        <div class="search">
+          <span class="search-icon">🔍</span>
+          <input id="search" type="search" placeholder="Search airlines or routes…" aria-label="Search" />
+        </div>
+      </section>
+
+      <section class="summary">
+        <div class="summary-inner">
+          <div class="avg-rating">4.3</div>
+          <div class="avg-text">Average Rating</div>
+        </div>
+      </section>
+
+      <section class="content">
+        <div class="left">
+          <h2 class="sr-only">Reviews</h2>
+          <div id="review-list" class="review-list">
+            <!-- Existing server-side reviews will render here -->
+            <article class="review-card">
+              <div class="avatar avatar-amber" aria-hidden="true"></div>
+              <div class="card-content">
+                <div class="card-head">
+                  <div class="name">Priya S.</div>
+                  <div class="meta">★★★★★ &middot; April 2026</div>
+                </div>
+                <div class="card-text">Comfortable seats and friendly crew! Flight was on time.</div>
+              </div>
+            </article>
+          </div>
+
+          <section class="submission">
+            <form id="review-form" class="review-form" action="#" method="post">
+              <div class="submission-row">
+                <textarea id="review-text" class="textarea" rows="2" placeholder="Write your review…" required></textarea>
+                <div class="rating-inputs" aria-label="Rating">
+                  <input type="hidden" id="rating-value" name="rating" value="5">
+                  <button type="button" class="rating-label" data-value="1" aria-label="1 star">★</button>
+                  <button type="button" class="rating-label" data-value="2" aria-label="2 stars">★</button>
+                  <button type="button" class="rating-label" data-value="3" aria-label="3 stars">★</button>
+                  <button type="button" class="rating-label" data-value="4" aria-label="4 stars">★</button>
+                  <button type="button" class="rating-label active" data-value="5" aria-label="5 stars">★</button>
+                </div>
+              </div>
+              <div class="submission-actions">
+                <button class="btn primary" type="submit">Submit Review</button>
+                <div id="form-status" class="form-status" aria-live="polite"></div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <aside class="right">
+          <div class="card card-summary">
+            <h3>Quick Summary</h3>
+            <p class="muted">Average score across all reviews</p>
+            <div class="big">4.3</div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small class="muted">Airline Reviews — UI Template</small>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+  (function(){
+    const ratingButtons = Array.from(document.querySelectorAll('.rating-label'));
+    const ratingInput = document.getElementById('rating-value');
+    function setRating(value){
+      ratingButtons.forEach(btn => {
+        const v = parseInt(btn.dataset.value,10);
+        btn.classList.toggle('active', v <= value);
+      });
+      ratingInput.value = value;
+    }
+    ratingButtons.forEach(btn => {
+      btn.addEventListener('click', () => setRating(parseInt(btn.dataset.value,10)));
+    });
+
+    const form = document.getElementById('review-form');
+    const list = document.getElementById('review-list');
+    const status = document.getElementById('form-status');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const text = document.getElementById('review-text').value.trim();
+      const rating = ratingInput.value || '5';
+      if(!text){ status.textContent = 'Please write a review.'; return; }
+
+      // create a new review card
+      const card = document.createElement('article');
+      card.className = 'review-card';
+      const avatar = document.createElement('div');
+      avatar.className = 'avatar avatar-blue';
+      avatar.setAttribute('aria-hidden','true');
+      const content = document.createElement('div');
+      content.className = 'card-content';
+      content.innerHTML = `<div class="card-head"><div class="name">You</div><div class="meta">${'★'.repeat(rating)} &middot; just now</div></div><div class="card-text"></div>`;
+      content.querySelector('.card-text').textContent = text;
+      card.appendChild(avatar);
+      card.appendChild(content);
+      list.insertBefore(card, list.firstChild);
+
+      // reset
+      document.getElementById('review-text').value = '';
+      setRating(5);
+      status.textContent = 'Review submitted (local only).';
+      setTimeout(()=> status.textContent = '',2500);
+    });
+  })();
+  </script>
+</body>
+</html>

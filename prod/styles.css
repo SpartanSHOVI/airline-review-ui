@@ -1,0 +1,45 @@
+:root{--bg:#f6f8fb;--card:#ffffff;--muted:#8C99B3;--accent:#2563EB;--accent-strong:#1E40AF;--text:#0F1724}
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:var(--text); margin:0}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+.site-header{background:transparent;padding:12px 0}
+.header-inner{display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo-img{width:40px;height:40px;border-radius:9999px}
+.brand-title{font-weight:600;font-size:18px}
+.main{padding-top:8px}
+.search-area .search{background:var(--card);border:1px solid #E6EEF8;padding:10px 12px;border-radius:8px;display:flex;align-items:center;gap:8px}
+.search input{border:0;outline:0;font-size:15px;background:transparent;width:100%}
+.summary-inner{display:flex;align-items:center;gap:16px;background:var(--card);padding:18px;border-radius:8px;border:1px solid #E6EEF8}
+.avg-rating{font-size:28px;font-weight:700}
+.avg-text{color:var(--muted)}
+.content{display:flex;gap:24px;margin-top:18px}
+.left{flex:1}
+.right{width:240px}
+.review-list{display:flex;flex-direction:column;gap:12px}
+.review-card{display:flex;gap:12px;background:var(--card);padding:14px;border-radius:10px;border:1px solid #E6EEF8;align-items:flex-start}
+.avatar{width:48px;height:48px;border-radius:9999px}
+.avatar-amber{background:#FFA726}
+.avatar-blue{background:#29B6F6}
+.card-content{flex:1}
+.card-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.name{font-weight:600}
+.meta{color:var(--muted);font-size:13px}
+.card-text{margin-top:8px;color:#2B3344}
+.submission{margin-top:16px}
+.submission-row{display:flex;gap:12px;align-items:center}
+.textarea{flex:1;padding:10px;border-radius:8px;border:1px solid #E6EEF8;background:#F8FAFB;resize:none}
+.rating-inputs{display:flex;gap:6px}
+.rating-label{background:transparent;border:0;font-size:18px;color:#FFD600;cursor:pointer}
+.rating-label.active{filter:drop-shadow(0 1px 0 rgba(0,0,0,0.05))}
+.submission-actions{margin-top:12px;display:flex;gap:12px;align-items:center}
+.btn{padding:10px 16px;border-radius:8px;border:0;cursor:pointer}
+.btn.primary{background:var(--accent);color:#fff}
+.card-summary{background:var(--card);padding:12px;border-radius:8px;border:1px solid #E6EEF8}
+.muted{color:var(--muted)}
+.form-status{color:var(--muted);font-size:13px}
+
+@media(max-width:900px){
+  .content{flex-direction:column}
+  .right{width:auto}
+}
